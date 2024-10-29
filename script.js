@@ -38,3 +38,42 @@ const advanceBrown = (e) => {
 
 // Check for a winner
 const checkWinner = (position, color) => {
+
+
+  if (blue_position==5){
+    winner.innerHTML=("Blue is Winner!");
+
+  };
+  if (pink_position==5){
+    winner.innerHTML=("Pink is Winner!");
+
+  };
+  if (brown_position==5){
+    winner.innerHTML=("Brown is Winner!");
+
+  };
+};
+
+const resetButton = document.querySelector("#reset-button");
+
+const resetRace = () => {
+  blue_position = 1;
+  pink_position =1;
+  brown_position =1;
+
+  changePosition(blueHorse, blue_position);
+  changePosition(pinkHorse, pink_position);
+  changePosition(brownHorse, brown_position);
+  
+  winner.innerHTML ='';
+
+  blueButton.disabled = false;
+  pinkButton.disabled = false;
+  brownButton.disabled = false;
+};
+
+// Event Listeners Here
+blueButton.addEventListener("click", advanceBlue);
+pinkButton.addEventListener("click", advancePink );
+brownButton.addEventListener("click", advanceBrown);
+resetButton.addEventListener("click", resetRace);
